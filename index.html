@@ -43,8 +43,8 @@ body{
     background:radial-gradient(circle, #fff 0%, #ffb300 60%, orange 100%);
     border-radius:50%;
     position:absolute;
-    top:49px; /* ajuste vertical da chama */
-    left:187px; /* ajuste horizontal da chama */
+    top:49px;
+    left:187px;
     box-shadow:0 0 20px orange;
     animation:flicker 0.15s infinite;
 }
@@ -108,6 +108,9 @@ button:hover{
 
 <button onclick="startMic()">Ativar Microfone 🎤</button>
 
+<!-- Áudio de aniversário -->
+<audio id="birthday-audio" src="src/Parabens.mp3" loop></audio>
+
 <script>
 
 let analyser;
@@ -115,6 +118,11 @@ let dataArray;
 
 async function startMic(){
 
+    // Tocar a música de aniversário
+    const audio = document.getElementById("birthday-audio");
+    audio.play().catch(e => console.log("Autoplay bloqueado:", e));
+
+    // Acessar microfone
     const stream = await navigator.mediaDevices.getUserMedia({audio:true});
     const audioContext = new AudioContext();
     const source = audioContext.createMediaStreamSource(stream);

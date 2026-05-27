@@ -44,7 +44,7 @@ body{
     border-radius:50%;
     position:absolute;
     top:49px;
-    left:160px;
+    left:165px;
     box-shadow:0 0 20px orange;
     animation:flicker 0.15s infinite;
 }
@@ -144,7 +144,7 @@ function detectBlow(){
 
     let volume = dataArray.reduce((a,b)=>a+b)/dataArray.length;
 
-    if(volume > 60){
+    if(volume > 100){
         apagarVela();
         return;
     }
